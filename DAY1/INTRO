@@ -1,0 +1,62 @@
+what is nodejs :-
+
+open source , cross platform run time js environment 
+allow run js outside the browser
+chrome v8 engine (fast engine)
+
+Node.js is an open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside of a web browser. It is built on Chrome's V8 JavaScript engine, which compiles JavaScript code into machine code, making it fast and efficient. Node.js is primarily used for server-side programming, enabling developers to use JavaScript for both front-end and back-end development.
+
+
+Key Features of nodejs :-
+
+1. Asychronous :- 
+ blocking and non blocking I/O model
+  1   2   3   4    -> 3   2 4  1
+
+2. single threaded but highly scalable
+
+single threaded  ->  object 
+It can manage thousands of request without creating of new thread.
+
+
+3. vert fast
+built on the v8 engine -> javascript code to machine code 
+
+4. cross platform :-
+
+work on windows , linux , mac os
+
+why nodejs is used :-
+
+web server and API 
+real time app (like chat app , games)
+streaming apps (like netflix )
+command line tools
+
+
+
+Event Loop:-
+
+heart of nodejs.
+nodejs allow async/ non blocking Io operations
+
+
+why we use event loop
+n request -> single thread -> handle 
+real time app(chat app , multiplayer games)
+fast 
+
+
+stack :- FILO and LIFO
+
+queue -> FIFO
+
+shorthand :-
+
+Event loop  :- single threaded handle all the request 
+
+single thread :- nodejs uses one thread for executing js code
+
+non blocking :- nodejs doesn't wait for operations to complete 
+
+Async pro:- executing without waiting 
