@@ -20,7 +20,6 @@ app.get("/", (req, res) => {
 app.get("/about", (req, res) => {
   return res.send(`Hello ${req.query.name}`);
 });
-
 app.listen(PORT, () => console.log(`server started on port ${PORT} `));
 
 

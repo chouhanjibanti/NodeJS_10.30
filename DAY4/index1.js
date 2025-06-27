@@ -9,7 +9,7 @@ const myServer = http.createServer((req,res)=>{
 
 
      fs.appendFile("log10.txt",log1 , (err,data) =>{
-        switch (myUrl.pathname) {
+        switch(myUrl.pathname) {
             case "/":
             if(req.method === 'GET')
             res.end("my Homepage")

@@ -1,0 +1,20 @@
+
+ 1750829277904 : GET: /api/users
+
+ 1750831301746 : POST: /api/users
+
+ 1750831326946 : POST: /api/users
+
+ 1750831447019 : POST: /api/users
+
+ 1750914983995 : GET: /api/users/1002
+
+ 1750915048102 : GET: /api/users/1002
+
+ 1750915219641 : GET: /api/users/1002
+
+ 1750915261361 : PATCH: /api/users/1002
+
+ 1750915291103 : DELETE: /api/users/1002
+
+ 1750915309436 : DELETE: /api/users/1003
