@@ -16,7 +16,7 @@ my-app/
 -> controller -> userController.js (logic handle)
 -> routes -> userRoutes.js   (define endpoints)
 -> index.js -> entry point
-
+EJS -> 
 
  model folder
 2. require mongoose
@@ -44,3 +44,6 @@ connect :- db and app connect
 ejs -> set 
 
 listen on port
+
+
+postman -> routes  -> userController -> model -> view page 
