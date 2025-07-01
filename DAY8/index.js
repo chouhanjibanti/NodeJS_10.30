@@ -13,7 +13,7 @@ mongoose
   .catch((err) => console.log("Mongo Error", err));
 
 // middleware
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 
 // set ejs view engine
