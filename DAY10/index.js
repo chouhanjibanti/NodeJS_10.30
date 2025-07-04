@@ -5,7 +5,8 @@
 
 const express = require("express");
 const mongoose = require("mongoose");
-// const  user_routes= require('./routes/userRoute');
+const user_routes =require("./routes/userRoute")
+
 
 const app = express();
 const PORT = 8080;
@@ -20,8 +21,7 @@ mongoose
   });
 
 
-const user_routes =require("./routes/userRoute")
-
+// http://localhost:8080/api/register
 app.use("/api" ,user_routes);
 
 // listen
