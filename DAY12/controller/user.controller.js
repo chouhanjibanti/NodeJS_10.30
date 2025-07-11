@@ -1,9 +1,9 @@
 // logic // register // login
 
-const User = require("../models/user.model");
-const bcryptjs = require("bcryptjs");
-const secretKey = require("../config/authConfig");
-const jwt = require("jsonwebtoken");
+import User from "../models/user.model.js";
+import bcryptjs from "bcryptjs";
+import secretKey from "../config/authConfig.js";
+import jwt from "jsonwebtoken";
 
 export const registrationController = async (req, res) => {
   try {
@@ -30,32 +30,30 @@ export const registrationController = async (req, res) => {
     });
   } catch (error) {
     console.log(error.message);
-    res.send(500).send({
+    res.status(500).send({
       message: "user Signup Error",
       error: error.message,
     });
   }
 };
 
-// Login user
-
 export const loginController = async (req, res) => {
   try {
     let { email, password } = req.body;
-    let user = User.findOne({ email: email }); // raja @123 // 1 // admin
+    let user = await User.findOne({ email: email }); // fixed missing await
     if (!user) {
-      res.send(404).send({ message: "user not exist" });
+      return res.status(404).send({ message: "user not exist" });
     }
     let matchPassword = await bcryptjs.compare(password, user.password);
     if (!matchPassword) {
-      res.send(400).send({ message: "password not matched .." });
+      return res.status(400).send({ message: "password not matched .." });
     }
     let payload = {
       id: user.id,
       email: user.email,
       role: user.role,
     };
-    let token = jwt.sign(payload, secretKey, { expiresIn: "1h" });
+    let token = jwt.sign(payload, secretKey.secret_jwt , { expiresIn: "1h" });
     res.status(200).send({
       message: "user Login Successfully",
       user,
@@ -63,7 +61,7 @@ export const loginController = async (req, res) => {
     });
   } catch (error) {
     console.log(error.message);
-    res.send(500).send({
+    res.status(500).send({
       message: "user login Error",
       error: error.message,
     });

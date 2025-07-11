@@ -1,16 +1,16 @@
-const dotenv = require('dotenv');
-
-dotenv.config();
-
-const express = require('express');
-
+// import dotenv from 'dotenv';
+import dbConfig from './config/dbConfig.js';
+import router from './routes/user.routes.js';
+import express from 'express';
+import cors from 'cors';
 const app = express();
 
-const PORT = process.env.PORT || 9000
+const PORT = 7000 || 9000
 
-const dbConfig  = require('./config/dbConfig');
-
-const router = require("./routes/user.routes")
+app.use(cors({
+    origin : "http://localhost:5173",
+    credentials :true
+}));
 
 app.use(express.json())
 

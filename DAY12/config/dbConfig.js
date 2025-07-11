@@ -1,13 +1,13 @@
-// const dotenv = require("dotenv");
-// const mongoose = require("mongoose");
-import mongoose from "mongoose"
-import dotenv from "dotenv"
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+// import mongoose from "mongoose"
+// import dotenv from "dotenv"
 
 
 dotenv.config();
 
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect("mongodb://127.0.0.1:27017/Authentication")
   .then(() => {
     console.log("mongoDb connected....");
   })
