@@ -1,6 +1,7 @@
 // import dotenv from 'dotenv';
 import dbConfig from './config/dbConfig.js';
 import router from './routes/user.routes.js';
+import bookRouter from './routes/book.routes.js';
 import express from 'express';
 import cors from 'cors';
 const app = express();
@@ -15,6 +16,8 @@ app.use(cors({
 app.use(express.json())
 
 app.use("/api",router);
+app.use('/uploads', express.static('uploads'));
+app.use('/api/books', bookRouter);
 
 app.listen(PORT , ()=>{
     console.log(`server is fun on port no http://localhost:${PORT}`);

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-        const navigate = useNavigate();
-     const [user, setUser] = useState({
-        email: "",
-        password: "",
-      });
+  const navigate = useNavigate();
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
 
-      const handleChange = (e) => {
+  const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
@@ -23,48 +23,45 @@ const Login = () => {
         body: JSON.stringify(user),
       });
       res = await res.json();
-      console.log(res);
-
-      setUser({
-        email: "",
-        password: "",
-      });
-      localStorage.setItem("token", res.token)
-      navigate("/login")
+      setUser({ email: "", password: "" });
+      localStorage.setItem("token", res.token);
+      navigate("/bookstore");
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} action="">
-        <div>
-          <label>Email :</label>
+    <div className="auth-container">
+      <form className="auth-form" onSubmit={handleSubmit} autoComplete="off">
+        <h2 className="auth-title">Login</h2>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
           <input
             type="email"
+            id="email"
             name="email"
             value={user.email}
             onChange={handleChange}
             required
             placeholder="Enter your Email"
+            className="form-input"
           />
         </div>
-
-        <div>
-          <label>Password :</label>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
           <input
             type="password"
+            id="password"
             name="password"
             value={user.password}
             onChange={handleChange}
             required
             placeholder="Enter your password"
+            className="form-input"
           />
         </div>
-        <button type="submit" value="submit">
-          Submit
-        </button>
+        <button type="submit" className="auth-btn">Login</button>
       </form>
     </div>
   );

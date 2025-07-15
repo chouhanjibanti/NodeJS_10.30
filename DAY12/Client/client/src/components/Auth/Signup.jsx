@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -24,59 +24,57 @@ const Signup = () => {
         body: JSON.stringify(user),
       });
       res = await res.json();
-      console.log(res);
-
-      setUser({
-        name: "",
-        email: "",
-        password: "",
-      });
-      navigate("/login")
+      setUser({ name: "", email: "", password: "" });
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} action="">
-        <div>
-          <label>Name:</label>
+    <div className="auth-container">
+      <form className="auth-form" onSubmit={handleSubmit} autoComplete="off">
+        <h2 className="auth-title">Sign Up</h2>
+        <div className="form-group">
+          <label htmlFor="name">Name</label>
           <input
             type="text"
+            id="name"
             name="name"
             value={user.name}
             onChange={handleChange}
             required
             placeholder="Enter your name"
+            className="form-input"
           />
         </div>
-        <div>
-          <label>Email :</label>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
           <input
             type="email"
+            id="email"
             name="email"
             value={user.email}
             onChange={handleChange}
             required
             placeholder="Enter your Email"
+            className="form-input"
           />
         </div>
-
-        <div>
-          <label>Password :</label>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
           <input
             type="password"
+            id="password"
             name="password"
             value={user.password}
             onChange={handleChange}
             required
             placeholder="Enter your password"
+            className="form-input"
           />
         </div>
-        <button type="submit" value="submit">
-          Submit
-        </button>
+        <button type="submit" className="auth-btn">Sign Up</button>
       </form>
     </div>
   );
